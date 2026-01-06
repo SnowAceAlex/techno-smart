@@ -16,21 +16,23 @@ const Header = async () => {
     <header className="bg-white py-5">
       <Container className="flex items-center justify-between">
         {/* Logo */}
-        <div className="w-auto md:w-1/3 flex items-center justify-start gap-2.5 md:gap-0">
+        <div className="w-auto md:w-1/3 flex items-center justify-start gap-2.5 md:gap-0 shrink-0">
           <HeaderNavMobile />
           <Logo />
         </div>
         {/* Navigation */}
         <HeaderNav />
         {/* Admin Menu */}
-        <div className="w-auto md:w-1/3 flex items-center justify-end gap-5">
+        <div className="w-auto md:w-1/3 flex items-center justify-end gap-5 shrink-0 min-w-0">
           <SearchBar />
           <CartButton />
           <FavoriteButton />
           {/* Clerk */}
           <ClerkLoaded>
             <SignedIn>
-              <UserButton />
+              <div className="flex items-center shrink-0">
+                <UserButton />
+              </div>
             </SignedIn>
             {!user && <LoginButton />}
           </ClerkLoaded>
