@@ -7,13 +7,21 @@
   --font-poppins: Poppins, sans-serif;
   --color-dark_blue: #12498d;
   --color-light_blue: #5284fb;
+  --color-lighter_blue: #a1bcf4;
   --color-light_gray: #707070;
   --color-light_pink: #fcf0e4;
   --color-light_bg: #f6f6f6;
+  --color-orange: #fb6c08;
+  --color-darkColor: #151515;
+  --color-lightColor: #52525b;
+  --color-lightOrange: #fca99b;
+  --color-light_green: #3b9c3c;
+  --color-deal-bg: #f1f3f8;
 }
 
 .hoverEffect {
   @apply transition-all duration-300 ease-in-out;
+  cursor: pointer;
 }
 
 @theme inline {

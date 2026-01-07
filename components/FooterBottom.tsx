@@ -59,7 +59,7 @@ const FooterBottom = () => {
         </SubText>
         <form className="space-y-3">
           <Input placeholder="Enter your email" type="email" required />
-          <Button className="w-full bg-dark_blue text-white hover:bg-light_blue hoverEffect hover:cursor-pointer ">
+          <Button className="w-full bg-dark_blue text-white hover:bg-light_blue hoverEffect ">
             Subscribe
           </Button>
         </form>

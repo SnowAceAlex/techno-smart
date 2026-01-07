@@ -18,7 +18,7 @@ const ProductTabBar = ({ tabBar, onTabBar }: ProductTabBarProps) => {
             onClick={() => onTabBar(item?.title)}
             key={item.title}
             className={`border border-light_blue/20 px-4 py-1.5 md:px-6 md:py-2 rounded-full
-              hover:bg-light_blue hover:border-light_blue hover:text-white/90 hoverEffect hover:cursor-pointer
+              hover:bg-light_blue hover:border-light_blue hover:text-white/90 hoverEffect
               ${tabBar === item?.title ? "bg-light_blue text-white border-light_blue" : "bg-light_blue/20"}`}
           >
             {item?.title}
@@ -28,7 +28,7 @@ const ProductTabBar = ({ tabBar, onTabBar }: ProductTabBarProps) => {
       <Link
         href="/shop"
         className="border border-light_blue/30 px-4 py-1.5 md:px-6 md:py-2 rounded-full
-              hover:bg-light_blue hover:border-light_blue hover:text-white/90 hoverEffect hover:cursor-pointer"
+              hover:bg-light_blue hover:border-light_blue hover:text-white/90 hoverEffect"
       >
         Shop All
       </Link>

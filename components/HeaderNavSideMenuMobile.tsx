@@ -35,7 +35,7 @@ const HeaderNavSideMenuMobile: FC<HeaderNavSideMenuMobileProps> = ({
           />
           <button
             onClick={onClose}
-            className="hover:text-light_blue cursor-pointer hoverEffect"
+            className="hover:text-light_blue hoverEffect"
           >
             <X />
           </button>

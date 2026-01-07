@@ -8,7 +8,7 @@ const HeaderNavMobile = () => {
   return (
     <>
       <button onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}>
-        <AlignLeft className="w-5 h-5 hover:text-light_blue hoverEffect cursor-pointer md:hidden" />
+        <AlignLeft className="w-5 h-5 hover:text-light_blue hoverEffect md:hidden" />
       </button>
       <div className="md:hidden">
         <HeaderNavSideMenuMobile

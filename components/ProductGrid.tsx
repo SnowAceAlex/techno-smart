@@ -10,7 +10,7 @@ import NoProductCard from "./NoProductCard";
 import ProductCard from "./ProductCard";
 import { Product } from "@/sanity.types";
 
-const query = `*[_type == "product" && variant == $variant] | order(name asc){
+const query = `*[_type == "product" && variant == $variant] | order(name desc){
   ...,"categories": categories[]->title
 }`;
 
