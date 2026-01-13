@@ -34,7 +34,9 @@ const NoProductCard = ({
         className="text-gray-600"
       >
         We&apos;re sorry, but there are no products matching on{" "}
-        <span className="text-base font-semibold text-darkColor">{tabBar}</span>{" "}
+        <span className="text-base font-semibold text-darkColor capitalize">
+          {tabBar}
+        </span>{" "}
         criteria at the moment.
       </motion.p>
 

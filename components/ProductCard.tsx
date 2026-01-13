@@ -10,7 +10,7 @@ import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="text-sm border border-dark_blue rounded-md bg-white group">
+    <div className="text-sm border border-dark_blue/20 rounded-md bg-white group">
       <div className="relative group overflow-hidden bg-light_bg rounded-t-md">
         {/* Product Images */}
         {product?.images && (

@@ -29,9 +29,9 @@ export type Address = {
   createdAt?: string;
 };
 
-export type Blogcategory = {
+export type BlogCategory = {
   _id: string;
-  _type: "blogcategory";
+  _type: "blogCategory";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -301,6 +301,7 @@ export type Category = {
   description?: string;
   range?: number;
   featured?: boolean;
+  productCount?: number;
   image?: {
     asset?: {
       _ref: string;
@@ -413,7 +414,7 @@ export type Geopoint = {
 
 export type AllSanitySchemaTypes =
   | Address
-  | Blogcategory
+  | BlogCategory
   | Slug
   | Blog
   | BlockContent
