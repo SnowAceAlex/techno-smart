@@ -1,3 +1,4 @@
+"use client";
 import { Product } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import { Flame, StarIcon } from "lucide-react";
@@ -7,22 +8,26 @@ import AddToWishlistButton from "./AddToWishlistButton";
 import Title from "./Title";
 import PriceView from "./PriceView";
 import AddToCartButton from "./AddToCartButton";
+import { useRouter } from "next/navigation";
 
 const ProductCard = ({ product }: { product: Product }) => {
+  const router = useRouter();
   return (
     <div className="text-sm border border-dark_blue/20 rounded-md bg-white group">
       <div className="relative group overflow-hidden bg-light_bg rounded-t-md">
         {/* Product Images */}
         {product?.images && (
-          <Image
-            src={urlFor(product?.images[0]).url()}
-            alt={product?.name || ""}
-            loading="lazy"
-            width={700}
-            height={700}
-            className={`w-full h-64 object-contain overflow-hidden transition-transform bg-light_bg rounded-t-md duration-500 hoverEffect
+          <Link href={`/product/${product?.slug?.current}`}>
+            <Image
+              src={urlFor(product?.images[0]).url()}
+              alt={product?.name || ""}
+              loading="lazy"
+              width={700}
+              height={700}
+              className={`w-full h-64 object-contain overflow-hidden transition-transform bg-light_bg rounded-t-md duration-500 hoverEffect
               ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"}`}
-          />
+            />
+          </Link>
         )}
         <AddToWishlistButton product={product} />
         {/* Product Sale */}
