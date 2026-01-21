@@ -33,9 +33,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         {/* Product Sale */}
         {product?.status === "sale" && (
           <p
-            className="absolute top-2 left-2 z-10 text-xs border \
-          border-darkColor/50 px-2 rounded-full 
-          group-hover:border-light_blue group-hover:text-light_blue hoverEffect"
+            className="absolute top-2 left-2 z-10 text-xs text-white border \
+          bg-sale-orange px-2 rounded-full 
+          group-hover:scale-110 transition-transform duration-200 hoverEffect"
           >
             Sale!
           </p>
@@ -43,9 +43,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         {/* Product New */}
         {product?.status === "new" && (
           <p
-            className="absolute top-2 left-2 z-10 text-xs border \
-          border-darkColor/50 px-2 rounded-full 
-          group-hover:border-light_blue group-hover:text-light_blue hoverEffect"
+            className="absolute top-2 left-2 z-10 text-xs text-white border \
+          bg-light_blue px-2 rounded-full 
+          group-hover:scale-110 transition-transform duration-200 hoverEffect"
           >
             New!
           </p>
@@ -54,13 +54,13 @@ const ProductCard = ({ product }: { product: Product }) => {
         {product?.status === "hot" && (
           <Link
             href={"/deal"}
-            className="absolute top-2 left-2 z-10 border border-orange/50 p-1 
-            rounded-full group-hover:border-orange hover:text-dark_blue hoverEffect"
+            className="absolute top-2 left-2 z-10 border border-red-hot-deal/50 p-1 
+            rounded-full group-hover:border-red-hot-deal hover:text-dark_blue hoverEffect"
           >
             <Flame
               size={18}
               fill="#fb6c08"
-              className="text-orange/50 group-hover:text-orange hoverEffect"
+              className="text-orange/50 group-hover:red-hot-deal hoverEffect"
             ></Flame>
           </Link>
         )}

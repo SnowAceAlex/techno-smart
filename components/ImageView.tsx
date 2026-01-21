@@ -27,7 +27,6 @@ interface Props {
 
 const ImageView = ({ images = [], isStock }: Props) => {
   const [active, setActive] = useState(images[0]);
-  console.log(active);
   return (
     <div className="w-full md:w-1/2 space-y-2 md:space-y-4">
       <AnimatePresence mode="wait">
@@ -51,6 +50,24 @@ const ImageView = ({ images = [], isStock }: Props) => {
           />
         </motion.div>
       </AnimatePresence>
+      {/* Image change slider */}
+      <div className="grid grid-cols-6 gap-2 h-20 md:h-24">
+        {images.map((image) => (
+          <button
+            key={image._key}
+            onClick={() => setActive(image)}
+            className={`border rounded-md overflow-hidden cursor-pointer ${active?._key === image?._key ? "border-darkColor opacity-100" : "opacity-80"}`}
+          >
+            <Image
+              src={urlFor(image).url()}
+              alt="productImage"
+              width={100}
+              height={100}
+              className="w-full h-auto object-contain "
+            />
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
