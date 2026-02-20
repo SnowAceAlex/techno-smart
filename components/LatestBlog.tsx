@@ -1,6 +1,6 @@
 import Title from "./Title";
 import { getLatestBlogs } from "@/sanity/queries";
-import { Blog, BlogCategory } from "@/sanity.types";
+import { Blog, Blogcategory } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +12,7 @@ const LatestBlog = async () => {
     <div className="mb-10 lg:mb-20 ">
       <Title>Latest Blog</Title>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-        {blogs?.map((blog: Blog) => (
+        {blogs?.map((blog) => (
           <div key={blog?._id} className="rounded-lg overflow-hidden">
             {blog?.mainImage && (
               <Link href={`/blog/${blog?.slug?.current || ""}`}>
@@ -35,7 +35,7 @@ const LatestBlog = async () => {
                       key={index}
                       className="font-semibold text-dark_blue tracking-wider"
                     >
-                      {(item as unknown as BlogCategory)?.title}
+                      {(item as unknown as Blogcategory)?.title}
                     </p>
                   ))}
                   <span
@@ -43,7 +43,10 @@ const LatestBlog = async () => {
                   h-[2px] group-hover:bg-dark_blue hover:cursor-pointer hoverEffect"
                   />
                 </div>
-                <p className="flex items-center gap-1 text-lightColor relative group hover:cursor-pointer hover:text-dark_blue hoverEffect">
+                <p
+                  className="flex items-center gap-1 text-lightColor relative group hover:cursor-pointer hover:text-dark_blue hoverEffect"
+                  suppressHydrationWarning
+                >
                   <Calendar size={15} />{" "}
                   {dayjs(blog?.publishedAt).format("DD MMM YYYY")}
                   <span className="absolute left-0 -bottom-1.5 bg-lightColor/30 inline-block w-full h-[2px] group-hover:bg-dark_blue hoverEffect" />

@@ -1,7 +1,9 @@
 import { getProductBySlug } from "@/sanity/queries";
 import Container from "@/components/Container";
-import ImageView from "@/components/ImageView";
 import { notFound } from "next/navigation";
+import ProductDetailContent from "@/components/ProductDetailContent";
+import ProductDetailsColumn from "@/components/ProductDetailsColumn";
+
 const ProductDetailPage = async ({
   params,
 }: {
@@ -14,10 +16,8 @@ const ProductDetailPage = async ({
   }
   return (
     <Container className="flex flex-col md:flex-row gap-10 py-10">
-      {product?.images && (
-        <ImageView images={product?.images} isStock={product?.stock} />
-      )}
-      <div className="w-full md:w-1/2 flex flex-col gap-5">Product Details</div>
+      <ProductDetailContent product={product} />
+      <ProductDetailsColumn product={product} />
     </Container>
   );
 };
