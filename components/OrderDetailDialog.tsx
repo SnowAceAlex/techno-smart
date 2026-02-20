@@ -53,6 +53,26 @@ const OrderDetailDialog: React.FC<OrderDetailsDialogProps> = ({
           <p>
             <strong>Invoice Number:</strong> {order?.invoice?.number}
           </p>
+          {order?.address && (
+            <div className="mt-3 p-3 rounded-lg bg-muted/50 border">
+              <strong className="block mb-2">Shipping Address:</strong>
+              <p className="text-sm">
+                {order.address.name && (
+                  <span className="block font-medium">{order.address.name}</span>
+                )}
+                {order.address.address && (
+                  <span className="block">{order.address.address}</span>
+                )}
+                {(order.address.city || order.address.state || order.address.zip) && (
+                  <span className="block">
+                    {[order.address.city, order.address.state, order.address.zip]
+                      .filter(Boolean)
+                      .join(", ")}
+                  </span>
+                )}
+              </p>
+            </div>
+          )}
           {order?.invoice && (
             <Button className="bg-transparent border text-darkColor/80 mt-2 hover:text-darkColor hover:border-darkColor hover:bg-darkColor/10 hoverEffect ">
               {order?.invoice?.hosted_invoice_url && (

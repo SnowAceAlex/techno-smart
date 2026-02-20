@@ -8,6 +8,14 @@ export const addressType = defineType({
   icon: HomeIcon,
   fields: [
     defineField({
+      name: "clerkUserId",
+      title: "Clerk User ID",
+      type: "string",
+      description: "The Clerk user ID this address belongs to",
+      validation: (Rule) => Rule.required(),
+      hidden: ({ document }) => !!document?.clerkUserId,
+    }),
+    defineField({
       name: "name",
       title: "Address Name",
       type: "string",
@@ -34,31 +42,17 @@ export const addressType = defineType({
     }),
     defineField({
       name: "state",
-      title: "State",
+      title: "State / Province",
       type: "string",
-      description: "Two letter state code (e.g. NY, CA)",
-      validation: (Rule) => Rule.required().length(2).uppercase(),
+      description: "State or province (e.g. NY, CA, or full name)",
+      validation: (Rule) => Rule.required().min(2).max(50),
     }),
     defineField({
       name: "zip",
-      title: "ZIP Code",
+      title: "ZIP / Postal Code",
       type: "string",
-      description: "Format: 12345 or 12345-6789",
-      validation: (Rule) =>
-        Rule.required()
-          .regex(/^\d{5}(-\d{4})?$/, {
-            name: "zipCode",
-            invert: false,
-          })
-          .custom((zip: string | undefined) => {
-            if (!zip) {
-              return "ZIP code is required";
-            }
-            if (!zip.match(/^\d{5}(-\d{4})?$/)) {
-              return "Please enter a valid ZIP code (e.g. 12345 or 12345-6789)";
-            }
-            return true;
-          }),
+      description: "ZIP or postal code",
+      validation: (Rule) => Rule.required().min(3).max(20),
     }),
     defineField({
       name: "default",
