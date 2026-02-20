@@ -43,7 +43,10 @@ const LatestBlog = async () => {
                   h-[2px] group-hover:bg-dark_blue hover:cursor-pointer hoverEffect"
                   />
                 </div>
-                <p className="flex items-center gap-1 text-lightColor relative group hover:cursor-pointer hover:text-dark_blue hoverEffect">
+                <p
+                  className="flex items-center gap-1 text-lightColor relative group hover:cursor-pointer hover:text-dark_blue hoverEffect"
+                  suppressHydrationWarning
+                >
                   <Calendar size={15} />{" "}
                   {dayjs(blog?.publishedAt).format("DD MMM YYYY")}
                   <span className="absolute left-0 -bottom-1.5 bg-lightColor/30 inline-block w-full h-[2px] group-hover:bg-dark_blue hoverEffect" />

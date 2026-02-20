@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import ProductStockText from "./ProductStockText";
 
 const ProductCharacteristic = async ({
   product,
@@ -37,10 +38,7 @@ const ProductCharacteristic = async ({
             </span>
           </p>
           <p className="flex items-center justify-between">
-            Stock:{" "}
-            <span className="font-semibold tracking-wide">
-              {product?.stock ? "Available" : "Out of Stock"}
-            </span>
+            Stock: <ProductStockText product={product} />
           </p>
         </AccordionContent>
       </AccordionItem>

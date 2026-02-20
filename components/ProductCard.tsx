@@ -8,10 +8,12 @@ import AddToWishlistButton from "./AddToWishlistButton";
 import Title from "./Title";
 import PriceView from "./PriceView";
 import AddToCartButton from "./AddToCartButton";
-import { useRouter } from "next/navigation";
+import useStore from "@/store";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const router = useRouter();
+  const { getItemCount } = useStore();
+  const availableStock =
+    (product?.stock ?? 0) - getItemCount(product?._id ?? "");
   return (
     <div className="text-sm border border-dark_blue/20 rounded-md bg-white group">
       <div className="relative group overflow-hidden bg-light_bg rounded-t-md">
@@ -25,7 +27,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               width={700}
               height={700}
               className={`w-full h-64 object-contain overflow-hidden transition-transform bg-light_bg rounded-t-md duration-500 hoverEffect
-              ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"}`}
+              ${availableStock > 0 ? "group-hover:scale-105" : "opacity-50"}`}
             />
           </Link>
         )}
@@ -90,11 +92,11 @@ const ProductCard = ({ product }: { product: Product }) => {
           <p className="text-lightColor text-xs tracking-wider"> 5 reviews </p>
         </div>
         {/* Product Stock */}
-        {(product?.stock as number) > 0 ? (
+        {availableStock > 0 ? (
           <div className="flex items-center gap-2">
             <p className="font-medium">In Stock</p>
             <p className="text-dark_blue/80 font-semibold text-sm tracking-wider">
-              {product?.stock}
+              {availableStock}
             </p>
           </div>
         ) : (
