@@ -81,10 +81,3 @@ npm run dev
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 - Open [http://localhost:3000/studio](http://localhost:3000/studio) to access the Sanity CMS Studio.
 
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open an issue or submit a pull request if you have any improvements or suggestions.
-
-## 📄 License
-
-This project is open-source and available under the MIT License.
